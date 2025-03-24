@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheat Libya - تشيت ليبيا</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .carousel {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .carousel-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .carousel-button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="Cheat Libya (1).png" alt="شعار Cheat Libya" class="logo">
+</header>
+
+<div class="container">
+    <h2>حاسبة Cheat Libya الذكية</h2>
+    
+    <div class="carousel">
+        <div class="carousel-images" id="carouselImages">
+            <img src="calcpic1.png" alt="Image 1">
+            <img src="calcpic2.png" alt="Image 2">
+            <img src="calcpic3.png" alt="Image 3">
+        </div>
+        <div class="carousel-buttons">
+            <button class="carousel-button" onclick="prevImage()">&#10094;</button>
+            <button class="carousel-button" onclick="nextImage()">&#10095;</button>
+        </div>
+    </div>
+
+    <p>تساعدك هذه الحاسبة في الدراسة من خلال السماح لك بحفظ الصور، الفيديوهات، والألعاب بكلمة سر سرية يمكنك تعديلها.</p>
+    <p class="price">السعر: 765 LYD</p>
+    <button onclick="addToCart()">أضف إلى السلة</button>
+</div>
+
+<footer>
+    <p>جميع الحقوق محفوظة &copy; 2025 Cheat Libya</p>
+</footer>
+
+<script>
+    let currentIndex = 0;
+
+    function showImage(index) {
+        const images = document.getElementById('carouselImages');
+        const totalImages = images.children.length;
+        if (index >= totalImages) {
+            currentIndex = 0;
+        } else if (index < 0) {
+            currentIndex = totalImages - 1;
+        } else {
+            currentIndex = index;
+        }
+
+        const offset = -currentIndex * 100; // Adjust for image width
+        images.style.transform = `translateX(${offset}%)`;
+    }
+
+    function nextImage() {
+        showImage(currentIndex + 1);
+    }
+
+    function prevImage() {
+        showImage(currentIndex - 1);
+    }
+
+    function addToCart() {
+        window.location.href = "info.html"; // Redirect to the info page
+    }
+</script>
+
+</body>
+</html>
