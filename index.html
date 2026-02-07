@@ -1,107 +1,108 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cheat Libya - تشيت ليبيا</title>
+    <meta name="description" content="حاسبة Cheat Libya الذكية - ذكاء اصطناعي، واي فاي، وتخزين سري. السعر: 890 د.ل">
+    <title>Cheat Libya - الحاسبة الذكية</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        .carousel {
-            position: relative;
-            max-width: 100%;
-            margin: auto;
-            overflow: hidden;
-        }
-
-        .carousel-images {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-
-        .carousel img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-
-        .carousel-buttons {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-        }
-
-        .carousel-button {
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-        }
-    </style>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
 
-<header>
-    <img src="Cheat Libya (1).png" alt="شعار Cheat Libya" class="logo">
-</header>
-
-<div class="container">
-    <h2>حاسبة Cheat Libya الذكية</h2>
-    
-    <div class="carousel">
-        <div class="carousel-images" id="carouselImages">
-            <img src="calcpic1.png" alt="Image 1">
-            <img src="calcpic2.png" alt="Image 2">
-            <img src="calcpic3.png" alt="Image 3">
+    <header>
+        <div class="header-container">
+            <img src="Cheat Libya (1).png" alt="شعار شيت ليبيا" class="logo">
         </div>
-        <div class="carousel-buttons">
-            <button class="carousel-button" onclick="prevImage()">&#10094;</button>
-            <button class="carousel-button" onclick="nextImage()">&#10095;</button>
-        </div>
-    </div>
+    </header>
 
-    <p>تساعدك هذه الحاسبة في الدراسة من خلال السماح لك بحفظ الصور، الفيديوهات، والألعاب بكلمة سر سرية يمكنك تعديلها.</p>
-    <p class="price">السعر: 765 LYD</p>
-    <button onclick="addToCart()">أضف إلى السلة</button>
-</div>
+    <main class="main-container">
+        <!-- Product Image Section -->
+        <section class="gallery-section">
+            <div class="product-image-container">
+                <img src="calculator.png" alt="حاسبة Cheat Libya الذكية" class="single-product-image">
+            </div>
+        </section>
 
-<footer>
-    <p>جميع الحقوق محفوظة &copy; 2025 Cheat Libya</p>
-</footer>
+        <!-- Product Info Section -->
+        <section class="product-info">
+            <span class="badge-new">جديد وحصري</span>
+            <h1 class="product-title">حاسبة Cheat Libya الذكية</h1>
 
-<script>
-    let currentIndex = 0;
+            <div class="price-tag">
+                890 <span class="currency">دينار ليبي</span>
+            </div>
 
-    function showImage(index) {
-        const images = document.getElementById('carouselImages');
-        const totalImages = images.children.length;
-        if (index >= totalImages) {
-            currentIndex = 0;
-        } else if (index < 0) {
-            currentIndex = totalImages - 1;
-        } else {
-            currentIndex = index;
+            <p class="description">
+                الحل المتكامل للدراسة الذكية. جهاز واحد يجمع بين قوة الذكاء الاصطناعي والخصوصية التامة.
+                شكلها حاسبة عادية، لكن داخلها عالم كامل من الإمكانيات.
+            </p>
+
+            <ul class="features-list">
+                <li class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-calculator"></i></div>
+                    <span><strong>تمويه ذكي:</strong> شكلها وتخدم كأنها حاسبة عادية، لكن أول ما تكتب الرمز السري تتحول
+                        لسلاحك الدراسي.</span>
+                </li>
+                <li class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-brain"></i></div>
+                    <span><strong>ذكاء اصطناعي متطور:</strong> تحل أي مسألة وتجاوب أي سؤال فوراً.</span>
+                </li>
+                <li class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-wifi"></i></div>
+                    <span><strong>اتصال Wi-Fi:</strong> خليك ديما متصل، واوصل للمعلومة في ثواني.</span>
+                </li>
+                <li class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-lock"></i></div>
+                    <span><strong>خزنة سرية:</strong> احفظ صورك، فيديوهاتك، وملفاتك بكلمة سر ما يعرفها حد غيرك.</span>
+                </li>
+                <li class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-eye-slash"></i></div>
+                    <span><strong>وضع الشبح:</strong> شاشة سوداء بضغطة زر للحماية الفورية.</span>
+                </li>
+            </ul>
+
+            <button class="buy-btn" onclick="buyNow()">
+                <i class="fas fa-shopping-cart"></i>
+                أطلبها توا
+            </button>
+        </section>
+    </main>
+
+    <footer>
+        <p>جميع الحقوق محفوظة &copy; 2025 Cheat Libya</p>
+    </footer>
+
+    <script>
+        let currentIndex = 0;
+        const track = document.getElementById('track');
+        const slides = document.querySelectorAll('.carousel-slide');
+        const totalSlides = slides.length;
+
+        function moveCarousel(direction) {
+            currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
+            const offset = currentIndex * -100;
+            track.style.transform = `translateX(${offset}%)`;
         }
 
-        const offset = -currentIndex * 100; // Adjust for image width
-        images.style.transform = `translateX(${offset}%)`;
-    }
+        // Auto-play for carousel
+        setInterval(() => {
+            moveCarousel(1);
+        }, 5000);
 
-    function nextImage() {
-        showImage(currentIndex + 1);
-    }
+        function buyNow() {
+            // Store product info in sessionStorage
+            sessionStorage.setItem('product', 'حاسبة Cheat Libya الذكية');
+            sessionStorage.setItem('price', '890 LYD');
 
-    function prevImage() {
-        showImage(currentIndex - 1);
-    }
-
-    function addToCart() {
-        window.location.href = "info.html"; // Redirect to the info page
-    }
-</script>
-
+            // Redirect to checkout page
+            // Assuming info.html is the checkout page key based on existing code logic
+            window.location.href = "info.html";
+        }
+    </script>
 </body>
+
 </html>

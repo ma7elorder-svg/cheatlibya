@@ -1,47 +1,253 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>معلومات الشراء - Cheat Libya</title>
+    <meta name="description" content="أدخل معلوماتك لإتمام عملية الشراء - Cheat Libya">
+    <title>إتمام الطلب - Cheat Libya</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Specific overrides for the checkout page */
+        .checkout-container {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 2rem;
+            background: #fff;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            color: var(--text-color);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--gray-border);
+            border-radius: var(--radius-md);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-green);
+            box-shadow: 0 0 0 4px rgba(56, 142, 60, 0.1);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .order-summary {
+            background: var(--gray-light);
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid var(--gray-border);
+        }
+
+        .summary-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .summary-price {
+            color: var(--accent-green);
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+        /* Update button style for form */
+        .submit-btn {
+            background: var(--text-color);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 1.2rem;
+            font-size: 1.2rem;
+            font-weight: 800;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .submit-btn:hover {
+            background: var(--accent-green);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(56, 142, 60, 0.3);
+        }
+    </style>
 </head>
+
 <body>
 
-<header>
-    <img src="Cheat Libya (1).png" alt="شعار Cheat Libya" class="logo">
-</header>
+    <header>
+        <div class="header-container">
+            <a href="index.html">
+                <img src="Cheat Libya (1).png" alt="شعار شيت ليبيا" class="logo">
+            </a>
+        </div>
+    </header>
 
-<div class="container">
-    <h2>أدخل معلوماتك</h2>
-    <form action="https://formsubmit.co/ma7elorder@gmail.com" method="POST">
-        <input type="text" name="name" id="name" placeholder="الاسم" required>
-        <input type="tel" name="phone" id="phone" placeholder="رقم الهاتف" required>
-        <select name="city" id="city" required>
-            <option value="" disabled selected>اختر المدينة</option>
-            <option value="Tripoli">طرابلس</option>
-            <option value="Benghazi">بنغازي</option>
-            <option value="Misrata">مصراته</option>
-            <option value="Zliten">زليطن</option>
-            <option value="Al Bayda">البيضاء</option>
-            <option value="Sirt">سرت</option>
-            <option value="Derna">درنة</option>
-            <option value="Tobruk">طبرق</option>
-            <option value="Khoms">الخمس</option>
-            <option value="Ajdabiya">اجدابيا</option>
-            <option value="Bani Walid">بني وليد</option>
-            <option value="Ghadames">غدامس</option>
-            <option value="Sebha">سبها</option>
-            <option value="Al Kufrah">الكفرة</option>
-        </select>
-        <input type="text" name="detailed_location" id="detailed-location" placeholder="تفاصيل الموقع" required>
-        <button type="submit">إرسال</button>
-    </form>
-</div>
+    <main class="checkout-container">
+        <h1 style="text-align: center; margin-bottom: 2rem;">إتمام الطلب</h1>
 
-<footer>
-    <p>جميع الحقوق محفوظة &copy; 2025 Cheat Libya - Khazouri Co</p>
-</footer>
+        <!-- Order Summary -->
+        <div class="order-summary" id="order-summary">
+            <div>
+                <div class="summary-title" id="product-name">جاري التحميل...</div>
+                <small style="color: #666;">الكمية: 1</small>
+            </div>
+            <div class="summary-price" id="product-price">...</div>
+        </div>
 
+        <form id="order-form">
+            <div class="form-group">
+                <label for="name" class="form-label">الاسم الكامل</label>
+                <input type="text" name="name" id="name" class="form-control" placeholder="أدخل اسمك الثلاثي" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone" class="form-label">رقم الهاتف</label>
+                <input type="tel" name="phone" id="phone" class="form-control" placeholder="09X XXXXXXX" required
+                    pattern="[0-9+\s-]{8,}">
+            </div>
+
+            <div class="form-group">
+                <label for="city" class="form-label">المدينة / المنطقة</label>
+                <select name="city" id="city" class="form-control" required>
+                    <option value="" disabled selected>اختر مدينتك</option>
+                    <option value="Tripoli">طرابلس</option>
+                    <option value="Benghazi">بنغازي</option>
+                    <option value="Misrata">مصراته</option>
+                    <option value="Zawiya">الزاوية</option>
+                    <option value="Zliten">زليتن</option>
+                    <option value="Al Bayda">البيضاء</option>
+                    <option value="Tobruk">طبرق</option>
+                    <option value="Ajdabiya">اجدابيا</option>
+                    <option value="Derna">درنة</option>
+                    <option value="Sabha">سبها</option>
+                    <option value="Khoms">الخمس</option>
+                    <option value="Sabratha">صبراتة</option>
+                    <option value="Zuwara">زوارة</option>
+                    <option value="Kufra">الكفرة</option>
+                    <option value="Marj">المرج</option>
+                    <option value="Tarhuna">ترهونة</option>
+                    <option value="Sirte">سيرت</option>
+                    <option value="Gharyan">غريان</option>
+                    <option value="Bani Walid">بني وليد</option>
+                    <option value="Ubari">أوباري</option>
+                    <option value="Ghadames">غدامس</option>
+                    <option value="Murzuq">مرزق</option>
+                    <option value="Ghat">غات</option>
+                    <option value="Surman">صرمان</option>
+                    <option value="Tajoura">تاجوراء</option>
+                    <option value="Janzour">جنزور</option>
+                    <option value="Msallata">مسلاتة</option>
+                    <option value="Qasr bin Ghashir">قصر بن غشير</option>
+                    <option value="Jadu">جادو</option>
+                    <option value="Yafran">يفرن</option>
+                    <option value="Nalut">نالوت</option>
+                    <option value="Other">مدينة أخرى</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="address" class="form-label">تفاصيل العنوان</label>
+                <textarea name="address" id="address" class="form-control"
+                    placeholder="اسم الشارع، رقم المنزل، أو أي علامة مميزة..." required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submit-btn">
+                <i class="fas fa-check-circle"></i>
+                تأكيد الطلب
+            </button>
+        </form>
+    </main>
+
+    <footer>
+        <p>جميع الحقوق محفوظة &copy; 2025 Cheat Libya</p>
+    </footer>
+
+    <script>
+        // Load data from Session Storage
+        const product = sessionStorage.getItem('product') || 'حاسبة Cheat Libya الذكية';
+        const price = sessionStorage.getItem('price') || '890 LYD';
+
+        document.getElementById('product-name').textContent = product;
+        document.getElementById('product-price').textContent = price;
+
+        // Form Validation & Submission
+        document.getElementById('order-form').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const btn = document.getElementById('submit-btn');
+            const originalText = btn.innerHTML;
+
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
+            btn.style.opacity = '0.8';
+            btn.disabled = true;
+
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                city: document.getElementById('city').value,
+                address: document.getElementById('address').value,
+                product: product,
+                price: price
+            };
+
+            try {
+                const response = await fetch('http://localhost:3000/send-order', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    btn.style.backgroundColor = 'var(--accent-green)';
+                    btn.innerHTML = '<i class="fas fa-check"></i> تم استلام طلبك بنجاح!';
+                    setTimeout(() => {
+                        window.location.href = 'index.html'; // Or a success page
+                    }, 2000);
+                } else {
+                    throw new Error('Server returned error');
+                }
+
+            } catch (error) {
+                console.error('Error:', error);
+                btn.style.backgroundColor = 'var(--accent-red)';
+                btn.innerHTML = '<i class="fas fa-times"></i> حدث خطأ. حاول مرة أخرى.';
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.backgroundColor = 'var(--text-color)';
+                    btn.disabled = false;
+                    btn.style.opacity = '1';
+                }, 3000);
+            }
+        });
+    </script>
 </body>
+
 </html>
