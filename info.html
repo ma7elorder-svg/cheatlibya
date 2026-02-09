@@ -238,8 +238,10 @@
 
             } catch (error) {
                 console.error('Error:', error);
+                const errorMessage = result && result.message ? result.message : 'حدث خطأ غير متوقع';
                 btn.style.backgroundColor = 'var(--accent-red)';
-                btn.innerHTML = '<i class="fas fa-times"></i> حدث خطأ. حاول مرة أخرى.';
+                btn.innerHTML = `<i class="fas fa-times"></i> ${errorMessage}. حاول مرة أخرى.`;
+                alert(`فشل الإرسال: ${errorMessage}\n\nالتفاصيل: ${error.message || error}`);
                 setTimeout(() => {
                     btn.innerHTML = originalText;
                     btn.style.backgroundColor = 'var(--text-color)';
