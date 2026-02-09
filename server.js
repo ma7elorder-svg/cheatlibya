@@ -11,6 +11,8 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use(express.static('.'));
+
 // Email Transporter Configuration
 const transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -21,14 +23,14 @@ const transporter = nodemailer.createTransport({
 });
 
 // Route to handle order submissions
-app.post('/send-order', async (req, res) => {
+app.post('/api/send-order', async (req, res) => {
     try {
         const { name, phone, city, address, product, price } = req.body;
 
         // Email Content
         const mailOptions = {
             from: process.env.EMAIL_USER,
-            to: 'cheatlibya@gmail.com', // Recipient email (Admin)
+            to: 'markomers910@gmail.com', // Recipient email (Admin)
             subject: `طلب جديد: ${name} - ${city}`,
             html: `
                 <div style="font-family: Arial, sans-serif; direction: rtl; padding: 20px; border: 1px solid #ddd; border-radius: 10px;">
